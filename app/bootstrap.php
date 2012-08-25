@@ -78,9 +78,12 @@ if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
 }
 Mage::register('original_include_path', get_include_path());
 
-$paths[] = BP . DS . 'app' . DS . 'code' . DS . 'local';
-$paths[] = BP . DS . 'app' . DS . 'code' . DS . 'community';
-$paths[] = BP . DS . 'app' . DS . 'code' . DS . 'core';
+$codePoolPathPrefix = BP . DS . 'app' . DS . 'code' . DS;
+
+$paths[] = $codePoolPathPrefix . 'local';
+$paths[] = $codePoolPathPrefix . 'community';
+$paths[] = $codePoolPathPrefix . 'core';
+
 $paths[] = BP . DS . 'lib';
 Magento_Autoload::getInstance()->addIncludePath($paths);
 
